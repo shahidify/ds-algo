@@ -1,7 +1,8 @@
 import Stack from './ds/stack';
 // import Queue from './ds/queue';
 
-import {generateParenthesis} from './leetcode/generateParenthesis';
+import {generateParenthesis} from './leetcode/20-generateParenthesis';
+import {numIslands} from './leetcode/200-numberOfIslands';
 
 import "./styles.css";
 
@@ -26,7 +27,6 @@ import "./styles.css";
 
 const sol = generateParenthesis(3);
 console.log(sol);
-
 
 document.getElementById("app").innerHTML = `
 <h1>Hello World!</h1>

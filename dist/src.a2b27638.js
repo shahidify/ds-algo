@@ -169,7 +169,7 @@ var Stack = /*#__PURE__*/function () {
 }();
 
 exports.default = Stack;
-},{}],"src/leetcode/generateParenthesis.js":[function(require,module,exports) {
+},{}],"src/leetcode/20-generateParenthesis.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -204,6 +204,8 @@ var generateParenthesis = function generateParenthesis(n) {
 };
 
 exports.generateParenthesis = generateParenthesis;
+},{}],"src/leetcode/200-numberOfIslands.js":[function(require,module,exports) {
+
 },{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -281,7 +283,9 @@ module.hot.accept(reloadCSS);
 
 var _stack = _interopRequireDefault(require("./ds/stack"));
 
-var _generateParenthesis = require("./leetcode/generateParenthesis");
+var _generateParenthesis = require("./leetcode/20-generateParenthesis");
+
+var _numberOfIslands = require("./leetcode/200-numberOfIslands");
 
 require("./styles.css");
 
@@ -307,7 +311,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var sol = (0, _generateParenthesis.generateParenthesis)(3);
 console.log(sol);
 document.getElementById("app").innerHTML = "\n<h1>Hello World!</h1>\n<hr />\n";
-},{"./ds/stack":"src/ds/stack.js","./leetcode/generateParenthesis":"src/leetcode/generateParenthesis.js","./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./ds/stack":"src/ds/stack.js","./leetcode/20-generateParenthesis":"src/leetcode/20-generateParenthesis.js","./leetcode/200-numberOfIslands":"src/leetcode/200-numberOfIslands.js","./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -335,7 +339,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58384" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50568" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
