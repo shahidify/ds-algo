@@ -169,58 +169,41 @@ var Stack = /*#__PURE__*/function () {
 }();
 
 exports.default = Stack;
-},{}],"src/ds/queue.js":[function(require,module,exports) {
+},{}],"src/leetcode/generateParenthesis.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.generateParenthesis = void 0;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var generateParenthesis = function generateParenthesis(n) {
+  var solution = [];
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  var generator = function generator(leftCount, rightCount, partial) {
+    // check
+    if (leftCount > rightCount) return; //exit condition
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+    if (!leftCount && !rightCount) solution.push(partial);
 
-var Queue = /*#__PURE__*/function () {
-  function Queue() {
-    _classCallCheck(this, Queue);
-
-    this.queue = [];
-  }
-
-  _createClass(Queue, [{
-    key: "enqueue",
-    value: function enqueue(item) {
-      return this.queue.push(item);
+    if (leftCount > 0) {
+      generator(leftCount - 1, rightCount, partial + '(');
     }
-  }, {
-    key: "dequeue",
-    value: function dequeue() {
-      return this.queue.shift();
-    }
-  }, {
-    key: "peek",
-    value: function peek() {
-      return this.queue[0];
-    }
-  }, {
-    key: "isEmpty",
-    value: function isEmpty() {
-      return this.length === 0;
-    }
-  }, {
-    key: "length",
-    get: function get() {
-      return this.queue.length;
-    }
-  }]);
 
-  return Queue;
-}();
+    if (rightCount > 0) {
+      generator(leftCount, rightCount - 1, partial + ')');
+    }
+  };
 
-exports.default = Queue;
+  generator(n, n, '');
+  return solution;
+};
+
+exports.generateParenthesis = generateParenthesis;
 },{}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
@@ -298,29 +281,33 @@ module.hot.accept(reloadCSS);
 
 var _stack = _interopRequireDefault(require("./ds/stack"));
 
-var _queue = _interopRequireDefault(require("./ds/queue"));
+var _generateParenthesis = require("./leetcode/generateParenthesis");
 
 require("./styles.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var books = new _stack.default();
-books.push('first');
-books.pop(); // books.push('second');
+// import Queue from './ds/queue';
+// const books = new Stack();
+// books.push('first');
+// books.pop();
+// books.push('second');
 // books.push('three');
 // books.push('four');
 // books.isEmpty();
+// console.log(books);
 //  QUEUE
-
-var movieQ = new _queue.default();
-movieQ.enqueue('Finding Nemo');
-movieQ.enqueue('Zootopia'); // movieQ.enqueue('The life of pets');
+// const movieQ = new Queue();
+// movieQ.enqueue('Finding Nemo');
+// movieQ.enqueue('Zootopia');
+// movieQ.enqueue('The life of pets');
 // movieQ.isEmpty();
-
-movieQ.dequeue();
-movieQ.dequeue();
+// movieQ.dequeue();
+// movieQ.dequeue();
+var sol = (0, _generateParenthesis.generateParenthesis)(3);
+console.log(sol);
 document.getElementById("app").innerHTML = "\n<h1>Hello World!</h1>\n<hr />\n";
-},{"./ds/stack":"src/ds/stack.js","./ds/queue":"src/ds/queue.js","./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./ds/stack":"src/ds/stack.js","./leetcode/generateParenthesis":"src/leetcode/generateParenthesis.js","./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -348,7 +335,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53273" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58384" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
